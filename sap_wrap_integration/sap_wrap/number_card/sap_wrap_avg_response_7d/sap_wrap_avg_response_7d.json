@@ -1,0 +1,23 @@
+{
+ "actions": [],
+ "color": "#0EA5E9",
+ "creation": "2025-09-30 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": null,
+ "filters_config": null,
+ "filters_json": "[]",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "SAP Wrap Avg Response (7d)",
+ "method": "sap_wrap_integration.sap_wrap.dashboard.get_avg_response_time",
+ "module": "SAP Wrap",
+ "modified": "2025-09-30 00:00:00.000000",
+ "modified_by": "Administrator",
+ "name": "SAP Wrap Avg Response (7d)",
+ "owner": "Administrator",
+ "show_percentage_stats": 0,
+ "stats_time_interval": "Daily",
+ "type": "Custom"
+}

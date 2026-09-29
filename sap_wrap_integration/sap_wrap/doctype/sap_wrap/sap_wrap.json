@@ -1,0 +1,245 @@
+{
+  "actions": [],
+  "allow_import": 1,
+  "autoname": "SAPW-.#####",
+  "creation": "2025-09-19 00:00:00",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "enabled",
+    "section_target",
+    "target_doctype",
+    "doc_event",
+    "condition",
+    "background_jobs_queue",
+    "section_request",
+    "api_endpoint",
+    "is_dynamic_url",
+    "request_method",
+    "endpoint_url",
+    "timeout",
+    "retry_count",
+    "retry_interval",
+    "headers_section",
+    "sap_wrap_headers",
+    "request_body_template",
+    "section_update",
+    "response_mappings",
+    "section_workflow",
+    "workflow_state_mappings",
+    "update_field_map",
+    "preview_tab",
+    "preview_document",
+    "column_break_preview",
+    "meets_condition",
+    "section_break_preview",
+    "preview_request_body"
+  ],
+  "fields": [
+    {
+      "default": "1",
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled"
+    },
+    {
+      "fieldname": "section_target",
+      "fieldtype": "Section Break",
+      "label": "Target"
+    },
+    {
+      "fieldname": "target_doctype",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Target DocType",
+      "options": "DocType",
+      "reqd": 1
+    },
+    {
+      "default": "on_update",
+      "fieldname": "doc_event",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Doc Event",
+      "options": "after_insert\non_update\non_submit\non_cancel\non_trash\non_update_after_submit\non_change",
+      "reqd": 1
+    },
+    {
+      "description": "Python expression evaluated with doc in context.",
+      "fieldname": "condition",
+      "fieldtype": "Small Text",
+      "label": "Condition (safe_eval)"
+    },
+    {
+      "fieldname": "background_jobs_queue",
+      "fieldtype": "Autocomplete",
+      "label": "Background Jobs Queue",
+      "options": "default\nshort\nlong\nheavy"
+    },
+    {
+      "fieldname": "section_request",
+      "fieldtype": "Section Break",
+      "label": "Request"
+    },
+    {
+      "description": "Load defaults from an API definition",
+      "fieldname": "api_endpoint",
+      "fieldtype": "Link",
+      "label": "API Endpoint (optional)",
+      "options": "SAP API Endpoint"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_dynamic_url",
+      "fieldtype": "Check",
+      "label": "Dynamic URL (Jinja)"
+    },
+    {
+      "default": "POST",
+      "fieldname": "request_method",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Request Method",
+      "options": "GET\nPOST\nDELETE",
+      "reqd": 1
+    },
+    {
+      "fieldname": "endpoint_url",
+      "fieldtype": "Small Text",
+      "in_list_view": 1,
+      "label": "Endpoint URL",
+      "reqd": 1,
+      "read_only_depends_on": "eval:!doc.is_dynamic_url"
+    },
+    {
+      "default": "30",
+      "fieldname": "timeout",
+      "fieldtype": "Int",
+      "label": "Timeout (seconds)"
+    },
+    {
+      "default": "0",
+      "description": "Number of additional attempts on failure",
+      "fieldname": "retry_count",
+      "fieldtype": "Int",
+      "label": "Retry Count"
+    },
+    {
+      "default": "3",
+      "description": "Wait time between retries",
+      "fieldname": "retry_interval",
+      "fieldtype": "Int",
+      "label": "Retry Interval (seconds)"
+    },
+    {
+      "fieldname": "headers_section",
+      "fieldtype": "Section Break",
+      "label": "Headers"
+    },
+    {
+      "fieldname": "sap_wrap_headers",
+      "fieldtype": "Table",
+      "label": "Headers",
+      "options": "SAP Wrap Header"
+    },
+    {
+      "fieldname": "request_body_template",
+      "fieldtype": "Code",
+      "label": "Request Body (JSON Jinja)",
+      "options": "JSON"
+    },
+    {
+      "fieldname": "section_update",
+      "fieldtype": "Section Break",
+      "label": "Response \u2192 Doc Updates"
+    },
+    {
+      "fieldname": "response_mappings",
+      "fieldtype": "Table",
+      "label": "Response Mappings",
+      "options": "SAP Response Mapping",
+      "description": "Prefer this over JSON map. JSON map retained for legacy."
+    },
+    {
+      "description": "List of mappings: [{\"path\": \"d.SerPO_No\", \"field\": \"sap_response\"}]",
+      "fieldname": "update_field_map",
+      "fieldtype": "Code",
+      "hidden": 1,
+      "label": "Update Field Map (JSON)",
+      "options": "JSON",
+      "read_only": 1
+    },
+    {
+      "fieldname": "preview_tab",
+      "fieldtype": "Tab Break",
+      "label": "Preview"
+    },
+    {
+      "fieldname": "preview_document",
+      "fieldtype": "Dynamic Link",
+      "label": "Select Document",
+      "options": "target_doctype"
+    },
+    {
+      "fieldname": "preview_request_body",
+      "fieldtype": "Code",
+      "is_virtual": 1,
+      "label": "Request Body"
+    },
+    {
+      "fieldname": "meets_condition",
+      "fieldtype": "Data",
+      "is_virtual": 1,
+      "label": "Meets Condition?"
+    },
+    {
+      "fieldname": "column_break_preview",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "section_break_preview",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "section_workflow",
+      "fieldtype": "Section Break",
+      "label": "Workflow Updates",
+      "depends_on": "eval:doc.target_doctype",
+      "collapsible": 1,
+      "collapsible_depends_on": "eval:(doc.workflow_state_mappings || []).length",
+      "description": "Map HTTP status codes to workflow states."
+    },
+    {
+      "fieldname": "workflow_state_mappings",
+      "fieldtype": "Table",
+      "label": "Workflow State Mappings",
+      "options": "SAP Wrap Workflow State Map",
+      "depends_on": "eval:doc.target_doctype",
+      "description": "When the API returns the given status code, update the document's workflow_state."
+    }
+  ],
+  "links": [],
+  "modified": "2025-09-22 09:29:07.846009",
+  "modified_by": "Administrator",
+  "module": "SAP Wrap",
+  "name": "SAP Wrap",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

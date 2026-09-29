@@ -1,0 +1,135 @@
+{
+  "actions": [],
+  "autoname": "SAPWRL-.#####",
+  "creation": "2025-09-19 00:00:00",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "sap_wrap",
+    "reference_doctype",
+    "reference_document",
+    "user",
+    "url",
+    "status_code",
+    "response_time_ms",
+    "response_time_sec",
+    "headers",
+    "data",
+    "response",
+    "error",
+    "created_at"
+  ],
+  "fields": [
+    {
+      "fieldname": "sap_wrap",
+      "fieldtype": "Link",
+      "label": "SAP Wrap",
+      "options": "SAP Wrap",
+      "read_only": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "reference_doctype",
+      "fieldtype": "Link",
+      "label": "Reference DocType",
+      "options": "DocType",
+      "read_only": 1
+    },
+    {
+      "fieldname": "reference_document",
+      "fieldtype": "Dynamic Link",
+      "in_list_view": 1,
+      "label": "Reference Document",
+      "options": "reference_doctype",
+      "read_only": 1
+    },
+    {
+      "fieldname": "user",
+      "fieldtype": "Link",
+      "label": "User",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "url",
+      "fieldtype": "Data",
+      "label": "URL",
+      "read_only": 1
+    },
+    {
+      "fieldname": "status_code",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Status Code",
+      "read_only": 1
+    },
+    {
+      "fieldname": "response_time_ms",
+      "fieldtype": "Float",
+      "label": "Response Time (ms)",
+      "precision": "0",
+      "read_only": 1
+    },
+    {
+      "fieldname": "response_time_sec",
+      "fieldtype": "Float",
+      "label": "Response Time (sec)",
+      "precision": 3,
+      "read_only": 1,
+      "in_list_view": 0
+    },
+    {
+      "fieldname": "headers",
+      "fieldtype": "Code",
+      "label": "Headers",
+      "options": "JSON",
+      "read_only": 1
+    },
+    {
+      "fieldname": "data",
+      "fieldtype": "Code",
+      "label": "Data",
+      "options": "JSON",
+      "read_only": 1
+    },
+    {
+      "fieldname": "response",
+      "fieldtype": "Code",
+      "label": "Response",
+      "options": "JSON",
+      "read_only": 1
+    },
+    {
+      "fieldname": "error",
+      "fieldtype": "Small Text",
+      "label": "Error",
+      "read_only": 1
+    },
+    {
+      "fieldname": "created_at",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Created At",
+      "read_only": 1
+    }
+  ],
+  "links": [],
+  "modified": "2025-09-25 12:15:17.611282",
+  "modified_by": "Administrator",
+  "module": "SAP Wrap",
+  "name": "SAP Wrap Request Log",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}

@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "allow_import": 0,
+ "autoname": "",
+ "creation": "2025-09-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_sap",
+  "sap_client_id",
+  "credentials_list",
+  "base_url",
+  "timeout",
+  "csrf_fetch_timeout",
+  "verify_ssl"
+ ],
+ "fields": [
+  {"fieldname": "section_sap", "fieldtype": "Section Break", "label": "Defaults"},
+  {"fieldname": "sap_client_id", "fieldtype": "Data", "label": "SAP Client"},
+  {"fieldname": "credentials_list", "fieldtype": "Small Text", "label": "Credentials (username:password)"},
+  {"fieldname": "base_url", "fieldtype": "Data", "label": "Base URL (e.g. https://sap.example.com)", "description": "Used when endpoint is a relative path"},
+  {"fieldname": "timeout", "fieldtype": "Int", "label": "Timeout (seconds)", "default": "30"},
+  {"fieldname": "csrf_fetch_timeout", "fieldtype": "Int", "label": "CSRF Fetch Timeout", "default": "5"},
+  {"fieldname": "verify_ssl", "fieldtype": "Check", "label": "Verify SSL", "default": "0"}
+ ],
+ "hide_toolbar": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-09-19 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SAP Wrap",
+ "name": "SAP Wrap Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {"read": 1, "write": 1, "create": 1, "delete": 1, "submit": 0, "cancel": 0, "amend": 0, "role": "System Manager"}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

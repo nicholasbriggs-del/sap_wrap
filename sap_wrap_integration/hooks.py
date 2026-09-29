@@ -247,3 +247,46 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+# SAP Wrap document events
+doc_events = {
+    "*": {
+        "after_insert": "sap_wrap_integration.sap_wrap.runner.run_sap_wraps",
+        "on_update": "sap_wrap_integration.sap_wrap.runner.run_sap_wraps",
+        "on_submit": "sap_wrap_integration.sap_wrap.runner.run_sap_wraps",
+        "on_cancel": "sap_wrap_integration.sap_wrap.runner.run_sap_wraps",
+        "on_trash": "sap_wrap_integration.sap_wrap.runner.run_sap_wraps",
+        "on_update_after_submit": "sap_wrap_integration.sap_wrap.runner.run_sap_wraps",
+        "on_change": "sap_wrap_integration.sap_wrap.runner.run_sap_wraps",
+    }
+}
+
+# SAP Wrap scheduled cleanup
+scheduler_events = {
+    "daily": [
+        "sap_wrap_integration.sap_wrap.runner.cleanup_old_sap_wrap_request_logs"
+    ]
+}
+
+# SAP Wrap workspace and dashboard fixtures
+fixtures = [
+    {
+        "dt": "Workspace",
+        "filters": [["name", "=", "SAP Wrap Operations"]]
+    },
+    {
+        "dt": "Dashboard Chart",
+        "filters": [["name", "in", [
+            "SAP Wrap Request Status Breakdown",
+            "SAP Wrap Response Time Trend"
+        ]]]
+    },
+    {
+        "dt": "Number Card",
+        "filters": [["name", "in", [
+            "SAP Wrap Requests (7d)",
+            "SAP Wrap Success Rate (7d)",
+            "SAP Wrap Avg Response (7d)"
+        ]]]
+    }
+]

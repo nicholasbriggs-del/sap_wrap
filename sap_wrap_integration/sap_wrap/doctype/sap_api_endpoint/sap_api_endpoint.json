@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2025-09-19 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "method",
+  "path",
+  "headers_section",
+  "headers",
+  "body_template",
+  "response_sample",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "POST",
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Method",
+   "options": "GET\nPOST\nDELETE",
+   "reqd": 1
+  },
+  {
+   "description": "If relative, combined with Settings Base URL",
+   "fieldname": "path",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Path or URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "headers_section",
+   "fieldtype": "Section Break",
+   "label": "Default Headers"
+  },
+  {
+   "fieldname": "headers",
+   "fieldtype": "Table",
+   "label": "Headers",
+   "options": "SAP Wrap Header"
+  },
+  {
+   "fieldname": "body_template",
+   "fieldtype": "Code",
+   "label": "Default Body (JSON Jinja)",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "response_sample",
+   "fieldtype": "Code",
+   "label": "Sample Response (JSON)",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "links": [],
+ "modified": "2025-09-23 15:37:35.482104",
+ "modified_by": "Administrator",
+ "module": "SAP Wrap",
+ "name": "SAP API Endpoint",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
